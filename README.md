@@ -1,7 +1,7 @@
 # Hatched für Archicad
 
 Holt eine Schraffur von [hatched.tech](https://hatched.tech) als Füllung in Archicad: auf der
-Website bei einer Schraffur „Für Archicad“ wählen, in Archicad in der Tapir-Palette
+Website bei einer Schraffur „In Archicad importieren“ wählen, in Archicad in der Tapir-Palette
 `Hatched_Import` ausführen.
 
 ## Einrichten (einmalig)
