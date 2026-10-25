@@ -2,7 +2,7 @@
 """
 Hatched für Archicad einrichten: in der Tapir-Palette mit „+“ hinzufügen und einmal ausführen.
 Trägt dieses Projekt in die Einstellungen von Tapir ein (Dokumente/Tapir/config.json), damit
-„hatched_holen“ nach einem Neustart von Archicad in der Palette steht. Tapir lädt das Skript dann
+„Hatched_Import“ nach einem Neustart von Archicad in der Palette steht. Tapir lädt das Skript dann
 bei jedem Start neu von GitHub. Ein Python-Skript statt einer Datei zum Doppelklicken, damit Mac
 und Windows nicht vor einem unbekannten Programm warnen.
 """
@@ -18,7 +18,7 @@ HATCHED = {
     "relativeLoc": "", "token": "", "includePattern": "", "excludePattern": "",
     # Nur die Skripte holen, nicht Anleitungen, Beispiele und diese Einrichtung.
     "excludeFromDownloadPattern":
-        "reklamier/hatched-archicad/(einrichten|werkzeug/beispiele)/.*"
+        "reklamier/hatched-archicad/(setup|tools/examples)/.*"
         "|reklamier/hatched-archicad/[^/]*[.]md",
 }
 # So legt Tapir die Datei selbst an, wenn es sie noch nicht gibt.
@@ -68,15 +68,15 @@ def set_up(path):
     repositories = config.setdefault("repositories", [])
     if any(r.get("repoOwner") == HATCHED["repoOwner"] and r.get("repoName") == HATCHED["repoName"]
            for r in repositories):
-        return "Hatched ist schon eingerichtet. Falls „hatched_holen“ fehlt: Archicad neu starten."
+        return "Hatched ist schon eingerichtet. Falls „Hatched_Import“ fehlt: Archicad neu starten."
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    if os.path.exists(path) and not os.path.exists(path + ".vor-hatched"):
-        shutil.copyfile(path, path + ".vor-hatched")
+    if os.path.exists(path) and not os.path.exists(path + ".before-hatched"):
+        shutil.copyfile(path, path + ".before-hatched")
     repositories.append(HATCHED)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(config, f, indent=4, ensure_ascii=False)
     return ("Fertig. Bitte Archicad neu starten: In der Tapir-Palette steht dann unter „Hatched“ "
-            "das Skript „hatched_holen“. Diesen Eintrag „Hatched_einrichten“ kannst du danach "
+            "das Skript „Hatched_Import“. Diesen Eintrag „Hatched_Setup“ kannst du danach "
             "mit „−“ entfernen.")
 
 

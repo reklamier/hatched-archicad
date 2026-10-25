@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Hatched holen: legt die Schraffur, die auf hatched.tech mit „Für Archicad“ kopiert wurde, als
+Hatched Import: legt die Schraffur, die auf hatched.tech mit „Für Archicad“ kopiert wurde, als
 Füllung in Archicad an. Gedacht für die Tapir-Palette in Archicad (Knopf statt Terminal); Tapir
 übergibt den Port mit --port. Liegt kein Link in der Zwischenablage, fragt ein kleines Fenster.
 """
@@ -16,7 +16,7 @@ import urllib.parse
 import urllib.request
 import json
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "werkzeug"))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
 from hatched_archicad import (  # noqa: E402
     check_tapir, create_fill, fill_data, find_archicad, read_dxf, tile_size,
 )
@@ -76,7 +76,7 @@ def ask_link():
         return ""
     from tkinter import simpledialog
     text = simpledialog.askstring(
-        "Hatched holen",
+        "Hatched Import",
         "Auf hatched.tech bei einer Schraffur „Für Archicad“ wählen\n"
         "und den Link hier einfügen:", parent=root)
     root.destroy()

@@ -5,7 +5,7 @@ Eine Hatched-Schraffur (DXF von hatched.tech) als echte Füllung in Archicad anl
 Braucht ein offenes Archicad (25 bis 30) mit der Gratis-Erweiterung Tapir
 (https://github.com/ENZYME-APD/tapir-archicad-automation). Nur Python 3, keine weiteren Pakete.
 
-Werkzeug zum Testen; „hatched_holen“ in der Tapir-Palette verwendet die Teile hier.
+Werkzeug zum Testen; „Hatched_Import“ in der Tapir-Palette verwendet die Teile hier.
 
   python3 hatched_archicad.py pruefen
       Findet Archicad und Tapir und sagt, ob alles bereit ist.
